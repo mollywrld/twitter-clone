@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Profile View{% endblock title %}
+
+{% block body %}
+<div class="rounded-3xl overflow-hidden shadow-xl max-w-xs my-3 bg-blue-500">
+    <img src="https://i.pinimg.com/564x/68/25/b4/6825b4ab1ac3038b6d72614ed25c3540.jpg" class="w-full" />
+  <div class="flex justify-center -mt-8">
+    {% thumbnail user.profile.image "100x100" crop="center" as im %}
+            <img src="{{ im.url }}" class="rounded-full border-solid border-white border-2 -mt-3">
+    {% endthumbnail %}		
+  </div>
+  <div class="text-center px-3 pb-6 pt-2">
+      <h1 class="text-white text-sm bold font-sans">{{ user.username }}</h1>
+      <p class="mt-2 font-sans font-light text-white">suck a caterpillar dick</p>
+  </div>
+    <div class="flex justify-center pb-3 text-white">
+    <div class="text-center mr-3 border-r pr-3">
+      <h2>{{ total_posts }}</h2>
+      <span>Posts</span>
+    </div>
+    <div class="text-center">
+      <h2>49</h2>
+      <span>Friends</span>
+    </div>
+    </div>
+</div>
+{% endblock body %}
